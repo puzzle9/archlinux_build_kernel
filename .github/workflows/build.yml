@@ -1,0 +1,40 @@
+name: Build CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build archlinux kernel
+        uses: vufa/arch-makepkg-action@master
+        with:
+          packages: >
+            bc
+            libelf
+            pahole
+            cpio
+            perl
+            tar
+            xz
+            xmlto
+            python-sphinx
+            python-sphinx_rtd_theme
+            graphviz
+            imagemagick
+            texlive-latexextra
+            git
+          scripts: "makepkg"
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: linux*.pkg*
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
