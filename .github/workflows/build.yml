@@ -32,7 +32,7 @@ jobs:
             imagemagick
             texlive-latexextra
             git
-          scripts: "makepkg"
+          scripts: "makepkg -s --skippgpcheck"
 
       - name: Release
         uses: softprops/action-gh-release@v1
