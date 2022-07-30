@@ -1,11 +1,11 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
-pkgbase=linux
-pkgver=5.18.15-p.arch1
+pkgbase=linux-skip_override_table
+pkgver=5.18.15.arch1
 pkgrel=1
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
-url="https://github.com/puzzle9/archlinux"
+url="https://github.com/puzzle9/archlinux/commits/$_srctag"
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
