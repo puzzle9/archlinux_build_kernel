@@ -5,7 +5,7 @@ pkgver=5.18.15.arch1
 pkgrel=1
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
-url="https://github.com/puzzle9/archlinux/commits/$_srctag"
+url="https://github.com/puzzle9/archlinux_build_kernel/releases/tag/$_srctag"
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -16,7 +16,7 @@ makedepends=(
 options=('!strip')
 _srcname=archlinux-linux
 source=(
-  "$_srcname::git+https://github.com/puzzle9/archlinux?signed#branch=skip_override_table"
+  skip_override_table.patch
   config         # the main kernel config file
 )
 validpgpkeys=(
@@ -33,6 +33,8 @@ export KBUILD_BUILD_USER=$pkgbase
 export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
 
 prepare() {
+  ln -s ../$_srcname ./
+
   cd $_srcname
 
   echo "Setting version..."
@@ -46,7 +48,7 @@ prepare() {
     src="${src##*/}"
     [[ $src = *.patch ]] || continue
     echo "Applying patch $src..."
-    patch -Np1 < "../$src"
+    patch -Np1 --ignore-whitespace < "../$src"
   done
 
   echo "Setting config..."
