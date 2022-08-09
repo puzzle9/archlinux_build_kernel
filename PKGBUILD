@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
-pkgbase=linux-skip_override_table
-pkgver=5.18.16.arch1
+pkgbase=linux-zen-skip_override_table
+pkgver=5.19.zen1
 pkgrel=1
-pkgdesc='Linux'
+pkgdesc='Linux ZEN'
 _srctag=v${pkgver%.*}-${pkgver##*.}
 url="https://github.com/puzzle9/archlinux_build_kernel/releases/tag/$_srctag"
 arch=(x86_64)
@@ -14,7 +14,7 @@ makedepends=(
   git
 )
 options=('!strip')
-_srcname=archlinux-linux
+_srcname=zen-kernel
 source=(
   skip_override_table.patch
   config         # the main kernel config file
@@ -23,10 +23,10 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
-  'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
+  'C5ADB4F3FEBBCE27A3E54D7D9AE4078033F8024D'  # Steven Barrett <steven@liquorix.net>
 )
 sha256sums=('SKIP'
-            '77fdfe47d8ab448787ac9cc4b73ad6d44ded735a4a001005e39301f6ddb553b4')
+            '96be3db71bd792be4d97c472ad5bc883ff0b7cc8c7b2e46de305645e5bfe28fa')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -70,8 +70,9 @@ _package() {
   depends=(coreutils kmod initramfs)
   optdepends=('wireless-regdb: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
-  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
-  replaces=(virtualbox-guest-modules-arch wireguard-arch)
+  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE KSMBD-MODULE VHBA-MODULE
+            UKSMD-BUILTIN)
+  replaces=()
 
   cd $_srcname
   local kernver="$(<version)"

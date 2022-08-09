@@ -13,14 +13,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Clone Archlinux
+      - name: Clone Zen
         uses: actions/checkout@v3
         with:
-          repository: archlinux/linux
-          ref: v5.18.16-arch1
-          path: archlinux-linux
+          repository: zen-kernel/zen-kernel
+          ref: v5.19-zen1
+          path: zen-kernel
 
-      - name: Build Archlinux Kernel
+      - name: Build Zen Kernel
         uses: vufa/arch-makepkg-action@master
         with:
           packages: >
