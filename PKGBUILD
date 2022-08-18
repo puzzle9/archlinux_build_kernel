@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
 pkgbase=linux-skip_override_table
-pkgver=5.19.arch1
+pkgver=5.19.2.arch1
 pkgrel=1
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
@@ -26,7 +26,7 @@ validpgpkeys=(
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
 sha256sums=('SKIP'
-            'ea77dc152e52065bd760956800c9dffa5f4600429c7a94c3f12d73abd34aa408')
+            'f170eda023a56db8cdcad4b83da5911b7b919bbd25084f729d37f1e6142557ca')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
