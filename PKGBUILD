@@ -1,6 +1,6 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
-pkgbase=linux-skip_override_table
+pkgbase=linux-custom_patch
 pkgver=5.19.2.arch1
 pkgrel=1
 pkgdesc='Linux'
@@ -16,7 +16,7 @@ makedepends=(
 options=('!strip')
 _srcname=archlinux-linux
 source=(
-  skip_override_table.patch
+  skip_override_amd_ryzen_6000.patch
   config         # the main kernel config file
 )
 validpgpkeys=(
@@ -25,7 +25,7 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
-sha256sums=('SKIP'
+sha256sums=('3f2ecdf693d0597414ce0fe44ec5423bab7263b90c5ca4100034aa23410a26ea'
             'f170eda023a56db8cdcad4b83da5911b7b919bbd25084f729d37f1e6142557ca')
 
 export KBUILD_BUILD_HOST=archlinux
