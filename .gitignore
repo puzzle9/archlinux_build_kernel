@@ -1,0 +1,4 @@
+zen-kernel
+src
+pkg
+*.tar.zst
