@@ -1,6 +1,6 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
-pkgbase=linux-zen-skip_override_table
+pkgbase=linux-zen-custom_patch
 pkgver=5.19.2.zen1
 pkgrel=1
 pkgdesc='Linux ZEN'
@@ -16,7 +16,7 @@ makedepends=(
 options=('!strip')
 _srcname=zen-kernel
 source=(
-  skip_override_table.patch
+  skip_override_amd_ryzen_6000.patch
   config         # the main kernel config file
 )
 validpgpkeys=(
@@ -25,7 +25,7 @@ validpgpkeys=(
   'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens (heftig)
   'C5ADB4F3FEBBCE27A3E54D7D9AE4078033F8024D'  # Steven Barrett <steven@liquorix.net>
 )
-sha256sums=('SKIP'
+sha256sums=('3f2ecdf693d0597414ce0fe44ec5423bab7263b90c5ca4100034aa23410a26ea'
             '4b6ac8f746749dddb9bdcff5c555d543e268900d3a0f270df91af158617dec30')
 
 export KBUILD_BUILD_HOST=archlinux
