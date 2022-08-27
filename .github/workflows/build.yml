@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: zen-kernel/zen-kernel
-          ref: v5.19.3-zen1
+          ref: v5.19.4-zen1
           path: zen-kernel
 
       - name: Build Zen Kernel
