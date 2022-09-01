@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
 pkgbase=linux-custom_patch
-pkgver=5.19.4.arch1
+pkgver=5.19.6.arch1
 pkgrel=1
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
@@ -17,6 +17,7 @@ options=('!strip')
 _srcname=archlinux-linux
 source=(
   skip_override_amd_ryzen_6000.patch
+  acp6x_yc_acp_quirk_table.patch
   config         # the main kernel config file
 )
 validpgpkeys=(
@@ -26,7 +27,8 @@ validpgpkeys=(
   'C7E7849466FE2358343588377258734B41C31549'  # David Runge <dvzrv@archlinux.org>
 )
 sha256sums=('3f2ecdf693d0597414ce0fe44ec5423bab7263b90c5ca4100034aa23410a26ea'
-            '5dc7562e35f2655bdb75a9807997799605c3e165180ba5f43b668a9089042d55')
+            '8c33690b5c23cf963ed876272388a1abace87cf4f743696093abdc01ff6e7904'
+            'aaca9391bd38d42e12d28766b423446b43ba1a8f916d6fd80064c01bb915c75f')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
