@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 
 pkgbase=linux-zen-custom_patch
-pkgver=5.19.4.zen1
+pkgver=5.19.8.zen1
 pkgrel=1
 pkgdesc='Linux ZEN'
 _srctag=v${pkgver%.*}-${pkgver##*.}
@@ -17,6 +17,7 @@ options=('!strip')
 _srcname=zen-kernel
 source=(
   skip_override_amd_ryzen_6000.patch
+  acp6x_yc_acp_quirk_table.patch
   config         # the main kernel config file
 )
 validpgpkeys=(
@@ -26,7 +27,8 @@ validpgpkeys=(
   'C5ADB4F3FEBBCE27A3E54D7D9AE4078033F8024D'  # Steven Barrett <steven@liquorix.net>
 )
 sha256sums=('3f2ecdf693d0597414ce0fe44ec5423bab7263b90c5ca4100034aa23410a26ea'
-            '9bae157bd1caf0c7339174c0bb046162251e82ac52bcb5aed570143c56d43c76')
+            '8c33690b5c23cf963ed876272388a1abace87cf4f743696093abdc01ff6e7904'
+            'SKIP')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase

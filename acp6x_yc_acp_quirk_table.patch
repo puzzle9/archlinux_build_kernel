@@ -1,0 +1,25 @@
+diff --git a/sound/soc/amd/yc/acp6x-mach.c b/sound/soc/amd/yc/acp6x-mach.c
+index ecfe7a790..fcf0317e2 100644
+--- a/sound/soc/amd/yc/acp6x-mach.c
++++ b/sound/soc/amd/yc/acp6x-mach.c
+@@ -143,6 +143,20 @@ static const struct dmi_system_id yc_acp_quirk_table[] = {
+ 			DMI_MATCH(DMI_PRODUCT_NAME, "21CL"),
+ 		}
+ 	},
++	{
++		.driver_data = &acp6x_card,
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, "TIMI"),
++			DMI_MATCH(DMI_BOARD_NAME, "TM2113"),
++		}
++	},
++	{
++		.driver_data = &acp6x_card,
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, "TIMI"),
++			DMI_MATCH(DMI_BOARD_NAME, "TM2107"),
++		}
++	},
+ 	{}
+ };
+ 
