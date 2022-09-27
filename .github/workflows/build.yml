@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: archlinux/linux
-          ref: v5.19.9-arch1
+          ref: v5.19.11-arch1
           path: archlinux-linux
 
       - name: Build Archlinux Kernel
